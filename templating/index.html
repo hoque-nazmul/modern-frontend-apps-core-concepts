@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teplating System using JavaScript es6</title>
+    <style>
+        .user {
+            width: 70%;
+            margin: 20px auto;
+            padding: 30px 20px;
+            background:cornflowerblue;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 10px 10px 40px gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="user-list">
+
+    </div>
+
+    <script>
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(data => showUserData(data))
+
+        function showUserData(data) {
+            let users = '';
+            data.forEach(user => {
+                users = users + `<div class="user">
+                    <h2>Name: ${user.name}</h2>
+                    <p>Email: ${user.email}</p>
+                    <p>Phone: ${user.phone}</p>
+                    <p>City: ${user.address.city}</p>
+                    <p>Company Name: ${user.company.name}</p>
+                </div>`
+            });
+            const userList = document.getElementById('user-list');
+            userList.innerHTML = users;
+        }
+
+    </script>
+</body>
+</html>
