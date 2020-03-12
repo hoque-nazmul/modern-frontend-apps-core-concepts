@@ -3,3 +3,11 @@
     font-weight: 500;
     background: skyblue;
 }
+
+.personDetails {
+    border: 2px solid blueviolet;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 30px 30px;
+    width: 40%;
+}

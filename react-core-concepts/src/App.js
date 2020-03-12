@@ -4,23 +4,36 @@ import './App.css';
 import './Main.css';
 
 function App() {
-  var clickBtn = {
-    textDecoration: 'none',
-    fontSize: '18px',
-    padding: '10px 30px',
-    borderRadius: '10px',
-    backgroundColor: 'salmon',
-    color: 'white'
-  }
+  
   return (
     <div className="App">
       <header className="App-header">
-        <h2><span className="highliter">Hello</span> <span className="test">world</span>, I am here!</h2>
-        <p>I am <span style={{ color: 'cyan', fontWeight: 'bold' }}>Nazmul Hoque</span></p>
-        <p>If you interest to know about me, please</p><a style ={clickBtn} href="#">Click Here</a>
+        <Person name="Nazmul Hoque" job="Software Engineer" institution="Chittagong University"></Person>
+        <Person name="Anayet Ullah" job="Teacher" institution="Chittagong University"></Person>
+        <Person name="Murshed Fahim" job="Student" institution="Dhaka University"></Person>
+        <Person name="Touhid Ahmed" job="Software Engineer" institution="FakaFaki University"></Person>
       </header>
     </div>
   );
 }
 
+function Person(profs) {
+  var btnDetails = {
+    color: 'white',
+    backgroundColor: 'skyblue',
+    padding: '8px 20px',
+    textDecoration: 'none',
+    fontSize: '16px',
+    borderRadius: '10px'
+  }
+  return (
+    <div className="personDetails">
+      <h2>Name: <span style={{ color: 'cyan' }}>{profs.name}</span></h2>
+      <h5>Job: {profs.job}</h5>
+      <h6>Institution: {profs.institution}</h6>
+      <a href="#" style={btnDetails}>Details</a>
+    </div>
+
+  );
+}
 export default App;
