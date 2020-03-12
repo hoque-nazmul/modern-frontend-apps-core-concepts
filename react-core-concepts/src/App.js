@@ -48,9 +48,9 @@ function Counter () {
   const [count, setCount] = useState(0);
   return (
     <div>
-      <h2>Counter: {count}</h2>
-      <button onClick={() => setCount(count + 1)} style={{ backgroundColor: 'cyan', borderRadius: '5px', border: '2px solid salmon', margin: '10px', color: 'black', padding: '6px 15px' }}>Increase</button>
-      <button onClick={() => setCount(count - 1)} style={{ backgroundColor: 'cyan', borderRadius: '5px', border: '2px solid salmon', margin: '10px', color: 'black', padding: '6px 15px' }}>Dicrease</button>
+      <h2>Counter : {count}</h2>
+      <button onClick={() => setCount(count + 1)} style={{ backgroundColor: 'cyan', fontWeight: 'bold', borderRadius: '5px', border: '2px solid salmon', margin: '10px', color: 'black', padding: '6px 15px' }}>Increase</button>
+      <button onClick={() => setCount(count - 1)} style={{ backgroundColor: 'cyan', fontWeight: 'bold', borderRadius: '5px', border: '2px solid salmon', margin: '10px', color: 'black', padding: '6px 15px' }}>Dicrease</button>
     </div>
   )
 }
