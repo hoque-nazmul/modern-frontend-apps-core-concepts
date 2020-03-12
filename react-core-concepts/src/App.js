@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import './Main.css';
 
 function App() {
+
   const products = [
     {name: 'Photoshop', price: '$89.99'},
     {name: 'Illustrator', price: '$69.89'},
     {name: 'After Effect', price: '$189.99'},
     {name: 'Premier Pro', price: '$49.99'}
   ];
+
   const persons = [
     {name: "Nazmul Hoque", job: "Software Engineer", institution: "Chittagong University"},
     {name: "Mukata Hoque", job: "HouseWife", institution: "City University"},
@@ -23,6 +25,9 @@ function App() {
       <header className="App-header">
 
         <Counter></Counter>
+
+        <Users></Users>
+
         <ul>
         {
           products.map(product => <li>{product.name}</li>)
@@ -32,9 +37,13 @@ function App() {
           friends.map(frnds => <li> {frnds} </li>)
         }
         </ul>
+
+        {/* Display Product Data */}
         {
           products.map(pd => <Product product={pd}></Product>)
         }
+
+        {/* Display Persons Data */}
         {
           persons.map(person => <Person personsData={person}></Person>)
         }
@@ -54,6 +63,28 @@ function Counter () {
     </div>
   )
 }
+
+// Users Shwoer from Server using useState and useEffect
+function Users() {
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(data => setUsers(data))
+  })
+  return (
+    <div>
+      <h2>Diplay Users Number: { users.length }</h2>
+      <ol>
+        {
+          users.map(user => <li>{user.name} : {user.phone}</li>)
+        }
+      </ol>
+    </div>
+  )
+}
+
+// Product Data Shower
 
 function Product(profs) {
 var productWrapper = {
@@ -82,6 +113,7 @@ const {name, price} = profs.product;
   )
 }
 
+// Person Data Shower Function
 
 function Person(profs) {
   var btnDetails = {
