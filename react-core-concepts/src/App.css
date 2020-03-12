@@ -24,6 +24,12 @@
   color: white;
 }
 
+.test {
+  font-weight: 500;
+  color: indianred;
+  text-transform: uppercase;
+}
+
 .App-link {
   color: #61dafb;
 }
